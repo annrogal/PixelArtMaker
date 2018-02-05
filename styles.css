@@ -1,15 +1,20 @@
 body {
     text-align: center;
+    background: gainsboro;
 }
 
 h1 {
-    font-family: Monoton;
+    font-family: Acherus Militant, Arial;
     font-size: 70px;
     margin: 0.2em;
+    background: -webkit-linear-gradient(rgb(98, 174, 204), rgb(7, 77, 117));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
 }
 
 h2 {
     margin: 1em 0 0.25em;
+    font-style: italic;
 }
 
 h2:first-of-type {
@@ -20,6 +25,7 @@ table,
 tr,
 td {
     border: 1px solid black;
+    background: white;
 }
 
 table {
@@ -37,4 +43,14 @@ td {
 
 input[type=number] {
     width: 6em;
+    border: 1px solid black;
+}
+
+input[type=submit] {
+    background-color: rgb(246, 252, 246); /* Green */
+    border-radius: 5px;
+    border: 1px solid black;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
 }

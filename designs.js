@@ -8,6 +8,7 @@ let grid;
 $(document).ready(() => {
     submitButton.click((e) => {
         e.preventDefault();
+        table.empty();
         makeGrid();
     });
     
@@ -22,15 +23,13 @@ $(document).ready(() => {
 });
 
 function makeGrid() {
-    for(let i = 0; i < gridWeight.val(); i++){
-        grid = '<tr>';
-        for(let j = 0; j < gridHeight.val(); j++){
-            grid += '<td></td>';
+    let row;
+    for(let i = 0; i < gridHeight.val(); i++){
+        table.append('<tr></tr>');
+        for(let j = 0; j < gridWeight.val(); j++){
+            $("tr:last").append("<td></td>");	
         }
-        grid += '</tr>';
     }
-
-    table.append(grid);
 }
 
 
