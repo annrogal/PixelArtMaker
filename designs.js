@@ -1,33 +1,37 @@
-const gridHeight = $('#inputHeight'), gridWeight = $('#inputWeight');
-const table = $('#pixelCanvas');
-const submitButton = $('input[type=submit]');
-let colorPicker = $('#colorPicker');
-let color = $('#colorPicker').val();
+const gridHeight = document.getElementById('inputHeight'), gridWeight = document.getElementById('inputWeight');
+const table = document.getElementById('pixelCanvas');
+const submitButton = document.getElementById('submitButton');
+let colorPicker = document.getElementById('colorPicker');
+let color = colorPicker.value;
 let grid;
 
-$(document).ready(() => {
-    submitButton.click((e) => {
+
+    submitButton.addEventListener('click', function(e) {
         e.preventDefault();
-        table.empty();
+        table.innerHTML = '';
         makeGrid();
     });
     
-    colorPicker.change(() => {
-        color = colorPicker.val();
+    colorPicker.addEventListener('change', function(){
+        color = colorPicker.value;
     });
-    
-    table.on('click', 'td', function(e) {
+
+    table.addEventListener('click', function(e){
         e.preventDefault();
-        $(this).css('background-color', color);
-    });
-});
+        if(e.target.nodeName == 'TD'){
+            e.target.style.backgroundColor = color;
+        }      
+    })
+
 
 function makeGrid() {
     let row;
-    for(let i = 0; i < gridHeight.val(); i++){
-        table.append('<tr></tr>');
-        for(let j = 0; j < gridWeight.val(); j++){
-            $("tr:last").append("<td></td>");	
+    for(let i = 0; i < gridHeight.value; i++){
+        const tr = document.createElement('tr');
+        table.appendChild(tr);
+        for(let j = 0; j < gridWeight.value; j++){
+            const td = document.createElement('td')
+            document.querySelector('tr:last-child').appendChild(td);	
         }
     }
 }
